@@ -1013,24 +1013,14 @@
 </div>
 
 <script>
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// ▼ ▼ ▼  只 需 在 這 裡 填 入 您 的  API 金 鑰 ， 其 他 不 用 動  ▼ ▼ ▼ 
-const ANTHROPIC_API_KEY = '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';
-// ▲ ▲ ▲  例 如 ： 'sk-ant-api03-xxxxxx...' ▲ ▲ ▲ 
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// STATE
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 let allIntel = [];
 let activeFilter = 'all';
 let activeCountries = new Set(['CN','TW','JP','KR','NK','US']);
 let isLoading = false;
 let currentRange = 'today';
+let ANTHROPIC_API_KEY = '';
 
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// CLOCK
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// Clock
 function updateClock() {
   const now = new Date();
   document.getElementById('clock').textContent =
@@ -1043,9 +1033,6 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// UI CONTROLS
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 function setRange(r, btn) {
   currentRange = r;
   document.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
@@ -1061,41 +1048,26 @@ function setFilter(f, btn) {
 }
 
 function toggleC(c, btn) {
-  if (activeCountries.has(c)) {
-    activeCountries.delete(c);
-    btn.classList.remove('on');
-  } else {
-    activeCountries.add(c);
-    btn.classList.add('on');
-  }
+  if (activeCountries.has(c)) { activeCountries.delete(c); btn.classList.remove('on'); }
+  else { activeCountries.add(c); btn.classList.add('on'); }
   renderFeed();
 }
 
 function toggleOrig(id) {
   const panel = document.getElementById('orig-' + id);
   const toggle = document.getElementById('toggle-' + id);
-  if (panel) {
-    panel.classList.toggle('open');
-    toggle.classList.toggle('open');
-  }
+  if (panel) { panel.classList.toggle('open'); toggle.classList.toggle('open'); }
 }
 
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// STATUS
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 function setStatus(state, label) {
   const dot = document.getElementById('statusDot');
   const lbl = document.getElementById('statusLabel');
   dot.className = 'dot ' + state;
   lbl.textContent = label;
-  lbl.style.color = state === 'live' ? 'var(--green)' :
-                    state === 'loading' ? 'var(--yellow)' : 'var(--red)';
+  lbl.style.color = state === 'live' ? 'var(--green)' : state === 'loading' ? 'var(--yellow)' : 'var(--red)';
 }
 
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// API CALL
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-async function callClaude(prompt, maxTokens = 4000) {
+async function callClaude(prompt, maxTokens = 2000) {
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
@@ -1107,183 +1079,68 @@ async function callClaude(prompt, maxTokens = 4000) {
     body: JSON.stringify({
       model: "claude-sonnet-4-20250514",
       max_tokens: maxTokens,
-      tools: [{ type: "web_search_20250305", name: "web_search" }],
       messages: [{ role: "user", content: prompt }]
     })
   });
   const data = await response.json();
-  if (!response.ok) throw new Error(data.error?.message || 'API error');
-  // Extract text content from all blocks
-  return data.content
-    .filter(b => b.type === 'text')
-    .map(b => b.text || '')
-    .join('');
+  if (!response.ok) throw new Error(JSON.stringify(data.error));
+  return data.content.filter(b => b.type === 'text').map(b => b.text || '').join('');
 }
 
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// LOAD ALL DATA
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 async function loadAll() {
   if (isLoading) return;
   isLoading = true;
-
   const btn = document.getElementById('refreshBtn');
   btn.disabled = true;
   btn.classList.add('spinning');
   setStatus('loading', 'LOADING...');
-
   document.getElementById('execText').className = 'exec-text loading';
-  document.getElementById('execText').textContent = '正 在 搜 集 最 新 情 資 並 生 成 摘 要 ， 請 稍 候 ...';
-
-  document.getElementById('feed').innerHTML = `
-    <div class="loading-screen">
-      <div class="loading-hex"></div>
-      <div class="loading-text">GATHERING INTELLIGENCE</div>
-      <div class="loading-sub">正 在 搜 集 東 亞 最 新 情 資 ， 啟 用 網 路 搜 尋 ...</div>
-    </div>`;
+  document.getElementById('execText').textContent = '正在搜集最新情資...';
+  document.getElementById('feed').innerHTML = '<div class="loading-screen"><div class="loading-hex"></div><div class="loading-text">GATHERING INTELLIGENCE</div><div class="loading-sub" id="loadSub">正在搜集東亞最新情資...</div></div>';
 
   const today = new Date().toLocaleDateString('zh-TW', { timeZone: 'Asia/Taipei' });
   const todayEn = new Date().toLocaleDateString('en-US', { timeZone: 'Asia/Taipei', month: 'long', day: 'numeric', year: 'numeric' });
 
-  // ─ ─  INTEL FEED PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
-  const intelPrompt = `You are a professional East Asia intelligence analyst. Today is ${todayEn} (${today}).
+  const intelPrompt = `You are an East Asia intelligence analyst. Today is ${todayEn}. Provide 15 intelligence items about defense, diplomacy, and economics involving China, Taiwan, Japan, South Korea, North Korea, and the US. Return ONLY a raw JSON array, no markdown:
+[{"id":1,"title":"繁體中文標題20字內","summary":"繁體中文摘要100字","originalText":"original source text","originalLang":"EN","category":"defense|diplomacy|economy","countries":["CN","TW"],"source":"source name","sourceType":"X","sourceVerified":true,"platform":"X","sourceUrl":"https://reuters.com","time":"09:00","importance":85,"relations":"關係說明","usRelation":"美國關係"}]
+Require min 2 JP items, min 4 each category. Return only JSON.`;
 
-Your task: Search for the latest real developments in East Asia today covering defense, diplomacy, and economics.
-
-CRITICAL SOURCE REQUIREMENTS:
-- Prioritize posts and statements from verified accounts (blue-check/verified accounts) on X (Twitter), Threads, LinkedIn, Facebook
-- Look for analysis from: defense scholars, former diplomats, think-tank researchers, regional correspondents, government officials
-- Prioritize news NOT YET widely covered by mainstream Western media  early signals, regional-language sources, expert commentary
-- Coverage window: today 08:0020:00 Taipei time
-
-Search for:
-1. Military/defense movements around Taiwan Strait, Korean Peninsula, South China Sea
-2. Diplomatic statements, bilateral meetings, policy shifts
-3. Economic/trade developments: sanctions, tech competition, supply chains
-4. At least 2 Japan-related items
-5. North Korea developments if any
-
-Return ONLY a raw JSON array (no markdown, no explanation) with exactly 15 items:
-[
-  {
-    "id": 1,
-    "title": "標 題 （ 繁 體 中 文 ， 20字 以 內 ） ",
-    "summary": "繁 體 中 文 摘 要 （ 120-160字 ， 包 含 背 景 、 影 響 、 各 方 反 應 、 分 析 師 觀 點 ） ",
-    "originalText": "原 始 內 容 摘 錄 （ 保 留 原 文 語 言 ， 英 /日 /韓 /中 ， 50-100字 ） ",
-    "originalLang": "EN|JA|KO|ZH-CN|ZH-TW",
-    "category": "defense|diplomacy|economy",
-    "countries": ["CN","TW","JP","KR","NK","US"],
-    "source": "發 文 者 姓 名 或 帳 號 （ 具 體 人 名 ， 如  @ElbridgeColby 或  黃 志 芳 ） ",
-    "sourceType": "X|Threads|LinkedIn|Facebook|Think-Tank|Official",
-    "sourceVerified": true,
-    "platform": "X|Threads|LinkedIn|Facebook|Reuters|Bloomberg|NHK|Yonhap|RTI|CSIS|RAND",
-    "sourceUrl": "https://真 實 來 源 連 結 ",
-    "time": "HH:MM",
-    "importance": 85,
-    "relations": "涉 及 國 家 間 關 係 （ 一 句 話 ） ",
-    "usRelation": "與 美 國 關 係 （ 一 句 話 ， 若 無 則 null） ",
-    "isNewToMedia": true
-  }
-]
-
-Require: min 2 JP, min 4 defense, min 4 diplomacy, min 4 economy. Return only the JSON array.`;
-
-  // ─ ─  STRAIT WATCH PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
-  const straitPrompt = `Today is ${todayEn}. Search for the latest Taiwan Strait and cross-strait situation updates today.
-
-Return ONLY a raw JSON array (no markdown) with 4 items:
-[
-  {
-    "type": "MILITARY|POLITICAL|ECONOMIC|DIPLOMATIC",
-    "level": "high|med|low",
-    "text": "繁 體 中 文 描 述 （ 40字 以 內 ） ",
-    "detail": "詳 細 說 明 （ 60字 ） ",
-    "time": "HH:MM"
-  }
-]`;
-
-  // ─ ─  US RELATIONS PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
-  const usRelPrompt = `Today is ${todayEn}. Assess current US relations with East Asian countries based on today's news.
-
-Return ONLY raw JSON (no markdown):
-{
-  "CN": { "score": 25, "color": "#f05149", "note": "一 句 話 說 明 當 前 美 中 關 係 （ 繁 體 中 文 ） " },
-  "TW": { "score": 82, "color": "#3db950", "note": "一 句 話 說 明 當 前 美 台 關 係 （ 繁 體 中 文 ） " },
-  "JP": { "score": 88, "color": "#3db950", "note": "一 句 話 說 明 當 前 美 日 關 係 （ 繁 體 中 文 ） " },
-  "KR": { "score": 75, "color": "#d4a017", "note": "一 句 話 說 明 當 前 美 韓 關 係 （ 繁 體 中 文 ） " },
-  "NK": { "score": 8,  "color": "#f05149", "note": "一 句 話 說 明 當 前 美 朝 關 係 （ 繁 體 中 文 ） " }
-}`;
-
-  // ─ ─  EXEC SUMMARY PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
-  const execPrompt = `Today is ${todayEn}. You are an intelligence analyst. Search for today's East Asia major developments and write an executive summary.
-
-Write in Traditional Chinese (繁 體 中 文 ). 150-200 characters. Cover: biggest defense/military signal, key diplomatic move, major economic development. Be concrete and analytical, not generic. Start directly with content.`;
+  const execPrompt = `Today is ${todayEn}. Write a 150-character Traditional Chinese executive summary of East Asia situation today covering defense, diplomacy, economics. Be specific and analytical.`;
 
   try {
+    const sub = document.getElementById('loadSub');
+    if (sub) sub.textContent = '步驟 1/2：搜集情報...';
     const intelText = await callClaude(intelPrompt, 3500);
-    await new Promise(r => setTimeout(r, 4000));
-    const straitText = await callClaude(straitPrompt, 600);
     await new Promise(r => setTimeout(r, 3000));
-    const usRelText = await callClaude(usRelPrompt, 500);
-    await new Promise(r => setTimeout(r, 3000));
+    if (sub) sub.textContent = '步驟 2/2：生成摘要...';
     const execText = await callClaude(execPrompt, 300);
+
+    try {
+      const cleaned = intelText.replace(/```json|```/g, '').trim();
+      const si = cleaned.indexOf('['), se = cleaned.lastIndexOf(']');
+      allIntel = JSON.parse(cleaned.slice(si, se + 1));
     } catch(e) {
-      console.error('Intel parse error:', e, intelText.slice(0, 300));
-      throw new Error('情 報 解 析 失 敗 ');
+      console.error('Intel parse error:', e);
+      throw new Error('情報解析失敗');
     }
 
-    // Update stats
     document.getElementById('stTotal').textContent = allIntel.length;
     document.getElementById('stDef').textContent = allIntel.filter(i => i.category === 'defense').length;
     document.getElementById('stDip').textContent = allIntel.filter(i => i.category === 'diplomacy').length;
     document.getElementById('stEco').textContent = allIntel.filter(i => i.category === 'economy').length;
-    document.getElementById('sourceCount').textContent = `SOURCES: ${allIntel.length}`;
-
+    document.getElementById('sourceCount').textContent = 'SOURCES: ' + allIntel.length;
     const now = new Date();
-    document.getElementById('updateTs').textContent =
-      `最 後 更 新 ： ${now.toLocaleTimeString('zh-TW', { timeZone:'Asia/Taipei', hour12:false })}`;
-
-    // Render exec summary
+    document.getElementById('updateTs').textContent = '最後更新：' + now.toLocaleTimeString('zh-TW', { timeZone:'Asia/Taipei', hour12:false });
     document.getElementById('execText').className = 'exec-text';
-    document.getElementById('execText').textContent = execText.trim() || '今 日 東 亞 情 勢 持 續 演 變 中 ， 詳 見 下 方 情 報 彙 整 。 ';
-
-    // Parse & render strait watch
-    try {
-      const sc = straitText.replace(/```json|```/g, '').trim();
-      const si = sc.indexOf('['), se = sc.lastIndexOf(']');
-      const straitData = JSON.parse(sc.slice(si, se + 1));
-      renderStrait(straitData);
-    } catch(e) {
-      document.getElementById('straitItems').innerHTML =
-        `<div style="color:var(--text-dim);font-size:11px;font-family:'Share Tech Mono',monospace;text-align:center;">資 料 解 析 中 ...</div>`;
-    }
-
-    // Parse & render US relations
-    try {
-      const uc = usRelText.replace(/```json|```/g, '').trim();
-      const ui = uc.indexOf('{'), ue = uc.lastIndexOf('}');
-      const usData = JSON.parse(uc.slice(ui, ue + 1));
-      renderUSRel(usData);
-    } catch(e) {
-      document.getElementById('usRelations').innerHTML =
-        `<div style="color:var(--text-dim);font-size:11px;font-family:'Share Tech Mono',monospace;text-align:center;">資 料 解 析 中 ...</div>`;
-    }
-
+    document.getElementById('execText').textContent = execText.trim() || '今日東亞情勢持續演變中。';
     setStatus('live', 'LIVE');
     renderFeed();
-
-  } catch (err) {
+  } catch(err) {
     console.error(err);
     setStatus('error', 'ERROR');
     document.getElementById('execText').className = 'exec-text';
-    document.getElementById('execText').textContent = '無 法 連 線 至 情 報 來 源 ， 請 稍 後 重 試 。 ';
-    document.getElementById('feed').innerHTML = `
-      <div class="error-screen">
-        <div style="font-size:36px;opacity:0.4;">⚠ ️ </div>
-        <div style="font-family:'Share Tech Mono',monospace;color:var(--red);letter-spacing:3px;font-size:12px;">INTEL FEED ERROR</div>
-        <div style="color:var(--text-dim);font-size:13px;margin-top:4px;">${err.message}</div>
-        <button class="refresh-btn" style="margin-top:16px;" onclick="loadAll()">重 試 連 線 </button>
-      </div>`;
+    document.getElementById('execText').textContent = '無法連線至情報來源，請稍後重試。';
+    document.getElementById('feed').innerHTML = '<div class="error-screen"><div style="font-size:36px;opacity:0.4;">⚠️</div><div style="font-family:monospace;color:var(--red);letter-spacing:3px;font-size:12px;">ERROR: ' + err.message + '</div><button class="refresh-btn" style="margin-top:16px;" onclick="loadAll()">重試</button></div>';
   } finally {
     isLoading = false;
     btn.disabled = false;
@@ -1291,148 +1148,36 @@ Write in Traditional Chinese (繁 體 中 文 ). 150-200 characters. Cover: bigg
   }
 }
 
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// RENDER FEED
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 function renderFeed() {
   const feed = document.getElementById('feed');
-  const catMap = { defense: '國 防 ', diplomacy: '外 交 ', economy: '經 濟 ' };
-
+  const catMap = { defense:'國防', diplomacy:'外交', economy:'經濟' };
   let items = allIntel.filter(item => {
     if (activeFilter !== 'all' && item.category !== activeFilter) return false;
     if (!item.countries.some(c => activeCountries.has(c))) return false;
     return true;
   });
-
-  if (items.length === 0) {
-    feed.innerHTML = `<div class="no-results">NO INTEL MATCHING CURRENT FILTERS<br><br>請 調 整 篩 選 條 件 </div>`;
-    return;
-  }
-
+  if (items.length === 0) { feed.innerHTML = '<div class="no-results">NO INTEL MATCHING FILTERS</div>'; return; }
   items.sort((a, b) => b.time.localeCompare(a.time));
-
   const impColor = (v) => v >= 80 ? 'var(--red)' : v >= 60 ? 'var(--yellow)' : 'var(--green)';
-
   feed.innerHTML = items.map((item, i) => {
-    const cbs = item.countries
-      .filter(c => activeCountries.has(c))
-      .map(c => `<span class="cbadge ${c}">${c}</span>`).join('');
-
+    const cbs = item.countries.filter(c => activeCountries.has(c)).map(c => '<span class="cbadge ' + c + '">' + c + '</span>').join('');
     const hasOrig = item.originalText && item.originalText.length > 5;
-    const langLabel = {
-      'EN': 'ENGLISH', 'JA': '日 本 語 ', 'KO': '한 국 어 ',
-      'ZH-CN': '簡 體 中 文 ', 'ZH-TW': '繁 體 中 文 '
-    }[item.originalLang] || 'ORIGINAL';
-
-    const verifiedBadge = item.sourceVerified
-      ? `<div class="source-verified"><div class="verified-check">✓ </div>${item.source}</div>`
-      : `<div class="source-verified">${item.source}</div>`;
-
-    return `
-      <div class="intel-card" style="animation-delay:${i * 0.05}s">
-        <div class="card-stripe stripe-${item.category}"></div>
-        <div class="card-inner">
-          <div class="card-meta">
-            <span class="cat-pill ${item.category}">${catMap[item.category]||item.category}</span>
-            <div class="cbadges">${cbs}</div>
-            ${verifiedBadge}
-            <span class="platform-tag">${item.platform}</span>
-            <span class="card-time-tag">${item.time}</span>
-          </div>
-          <div class="card-title">${item.title}</div>
-          <div class="card-summary">${item.summary}</div>
-
-          ${hasOrig ? `
-          <div class="orig-toggle" id="toggle-${item.id}" onclick="toggleOrig(${item.id})">
-            <span class="orig-toggle-arrow">▶ </span>
-            <span>展 開 原 文  (${langLabel})</span>
-          </div>
-          <div class="orig-panel" id="orig-${item.id}">
-            <div class="orig-lang-label">${langLabel} ORIGINAL</div>
-            <div>${item.originalText}</div>
-          </div>
-          ` : ''}
-
-          ${item.relations ? `
-          <div class="relations-row">
-               ${item.relations}${item.usRelation ? `<br>     ${item.usRelation}` : ''}
-          </div>` : ''}
-
-          <div class="card-footer">
-            <a href="${item.sourceUrl}" target="_blank" rel="noopener" class="source-link">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-              查 看 來 源 
-            </a>
-            <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-dim);">
-              ${item.sourceUrl.replace('https://','').replace('http://','').split('/')[0]}
-            </span>
-            <div class="importance-meter">
-              重 要 
-              <div class="imp-bar">
-                <div class="imp-fill" style="width:${item.importance||70}%;background:${impColor(item.importance||70)}"></div>
-              </div>
-              ${item.importance||70}%
-            </div>
-          </div>
-        </div>
-      </div>`;
+    const langLabel = {'EN':'ENGLISH','JA':'日本語','KO':'한국어','ZH-CN':'簡體中文','ZH-TW':'繁體中文'}[item.originalLang] || 'ORIGINAL';
+    const verifiedBadge = item.sourceVerified ? '<div class="source-verified"><div class="verified-check">✓</div>' + item.source + '</div>' : '<div class="source-verified">' + item.source + '</div>';
+    return '<div class="intel-card" style="animation-delay:' + (i*0.05) + 's"><div class="card-stripe stripe-' + item.category + '"></div><div class="card-inner"><div class="card-meta"><span class="cat-pill ' + item.category + '">' + (catMap[item.category]||item.category) + '</span><div class="cbadges">' + cbs + '</div>' + verifiedBadge + '<span class="platform-tag">' + item.platform + '</span><span class="card-time-tag">' + item.time + '</span></div><div class="card-title">' + item.title + '</div><div class="card-summary">' + item.summary + '</div>' + (hasOrig ? '<div class="orig-toggle" id="toggle-' + item.id + '" onclick="toggleOrig(' + item.id + ')"><span class="orig-toggle-arrow">▶</span><span>展開原文 (' + langLabel + ')</span></div><div class="orig-panel" id="orig-' + item.id + '"><div class="orig-lang-label">' + langLabel + ' ORIGINAL</div><div>' + item.originalText + '</div></div>' : '') + (item.relations ? '<div class="relations-row">🔗 ' + item.relations + (item.usRelation ? '<br>🇺🇸 ' + item.usRelation : '') + '</div>' : '') + '<div class="card-footer"><a href="' + item.sourceUrl + '" target="_blank" rel="noopener" class="source-link">查看來源</a><div class="importance-meter">重要<div class="imp-bar"><div class="imp-fill" style="width:' + (item.importance||70) + '%;background:' + impColor(item.importance||70) + '"></div></div>' + (item.importance||70) + '%</div></div></div></div>';
   }).join('');
 }
 
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// RENDER SIDEBAR
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-function renderStrait(data) {
-  const container = document.getElementById('straitItems');
-  container.innerHTML = data.map(item => `
-    <div class="alert-item">
-      <div class="alert-item-header">
-        <div class="alert-dot ${item.level}"></div>
-        <div class="alert-type">${item.type}</div>
-        <div class="alert-time">${item.time}</div>
-      </div>
-      <div class="alert-text">${item.text}</div>
-      ${item.detail ? `<div style="font-size:11px;color:var(--text-dim);margin-top:4px;line-height:1.5;">${item.detail}</div>` : ''}
-    </div>`
-  ).join('');
-}
-
-function renderUSRel(data) {
-  const container = document.getElementById('usRelations');
-  const labels = { CN:'     中 國 ', TW:'     台 灣 ', JP:'     日 本 ', KR:'     南 韓 ', NK:'     北 韓 ' };
-  container.innerHTML = Object.entries(data).map(([c, v]) => `
-    <div class="us-rel-item">
-      <div class="us-rel-header">
-        <div class="us-rel-country" style="color:${v.color||'var(--text)'};">${labels[c]||c}</div>
-        <div class="us-rel-score" style="color:${v.color||'var(--accent)'};">${v.score}</div>
-      </div>
-      <div class="us-rel-bar">
-        <div class="us-rel-fill" style="width:${v.score}%;background:${v.color||'var(--accent)'}"></div>
-      </div>
-      ${v.note ? `<div class="us-rel-note">${v.note}</div>` : ''}
-    </div>`
-  ).join('');
-}
-
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // INIT
-// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-loadAll();
-<script>
-// INIT
-window.addEventListener('load', function() {
-  const key = prompt('請輸入 Anthropic API 金鑰 (sk-ant-...)：');
+window.onload = function() {
+  const key = prompt('EASTWATCH\n請輸入 Anthropic API 金鑰：');
   if (key && key.startsWith('sk-ant-')) {
     ANTHROPIC_API_KEY = key;
     loadAll();
-  } else {
-    alert('金鑰格式錯誤');
+  } else if (key) {
+    alert('金鑰格式錯誤，請重新整理後再試');
   }
-});
+};
 </script>
 </body>
-</html>}
+</html>
