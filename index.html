@@ -1221,12 +1221,6 @@ Write in Traditional Chinese (繁 體 中 文 ). 150-200 characters. Cover: bigg
 
   try {
     // Run in parallel where possible
-    const [intelText, straitText, usRelText, execText] = await Promise.all([
-      callClaude(intelPrompt, 5000),
-      callClaude(straitPrompt, 800),
-      callClaude(usRelPrompt, 600),
-      callClaude(execPrompt, 400)
-    ]);
     const intelText = await callClaude(intelPrompt, 3500);
     await new Promise(r => setTimeout(r, 4000));
     const straitText = await callClaude(straitPrompt, 600);
