@@ -1116,12 +1116,27 @@ Require min 2 JP items, min 4 each category. Return only JSON.`;
     const execText = await callClaude(execPrompt, 300);
 
     try {
-      const cleaned = intelText.replace(/```json|```/g, '').trim();
+      let cleaned = intelText.replace(/```json|```/g, '').trim();
       const si = cleaned.indexOf('['), se = cleaned.lastIndexOf(']');
-      allIntel = JSON.parse(cleaned.slice(si, se + 1));
+      cleaned = cleaned.slice(si, se + 1);
+      // 移除控制字元
+      cleaned = cleaned.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g, '');
+      // 修復常見 JSON 問題
+      cleaned = cleaned.replace(/,\s*]/g, ']').replace(/,\s*}/g, '}');
+      allIntel = JSON.parse(cleaned);
     } catch(e) {
       console.error('Intel parse error:', e);
-      throw new Error('情報解析失敗');
+      // 嘗試提取部分資料
+      try {
+        const matches = intelText.match(/\{[^{}]+\}/g);
+        if (matches && matches.length > 0) {
+          allIntel = matches.map(m => JSON.parse(m)).filter(Boolean);
+        } else {
+          throw new Error('情報解析失敗');
+        }
+      } catch(e2) {
+        throw new Error('情報解析失敗');
+      }
     }
 
     document.getElementById('stTotal').textContent = allIntel.length;
