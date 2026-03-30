@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EASTWATCH \'97 \uc0東 亞 情 報 監 控 系 統 </title>
+<title>EASTWATCH \'97 東 亞 情 報 監 控 系 統 </title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap');
 
@@ -55,7 +55,7 @@
     z-index: 9999;
   }
 
-  /* \uc0─ ─  HEADER ─ ─  */
+  /* ─ ─  HEADER ─ ─  */
   header {
     background: rgba(11,16,23,0.95);
     backdrop-filter: blur(12px);
@@ -160,10 +160,10 @@
     50% { opacity: 0.3; box-shadow: none; }
   }
 
-  /* \uc0─ ─  CONTAINER ─ ─  */
+  /* ─ ─  CONTAINER ─ ─  */
   .container { max-width: 1440px; margin: 0 auto; padding: 24px 28px; }
 
-  /* \uc0─ ─  EXECUTIVE SUMMARY BANNER ─ ─  */
+  /* ─ ─  EXECUTIVE SUMMARY BANNER ─ ─  */
   .exec-summary {
     background: linear-gradient(135deg, rgba(0,200,160,0.06) 0%, rgba(77,157,224,0.06) 100%);
     border: 1px solid rgba(0,200,160,0.2);
@@ -223,7 +223,7 @@
 
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-  /* \uc0─ ─  CONTROLS ─ ─  */
+  /* ─ ─  CONTROLS ─ ─  */
   .controls-row {
     display: flex;
     align-items: center;
@@ -301,7 +301,7 @@
 
   @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-  /* \uc0─ ─  COUNTRY TAGS ─ ─  */
+  /* ─ ─  COUNTRY TAGS ─ ─  */
   .country-row {
     display: flex;
     align-items: center;
@@ -344,7 +344,7 @@
   .ctag.on[data-c="NK"] { background: rgba(136,170,238,0.1); }
   .ctag.on[data-c="US"] { background: rgba(167,139,250,0.12); }
 
-  /* \uc0─ ─  MAIN LAYOUT ─ ─  */
+  /* ─ ─  MAIN LAYOUT ─ ─  */
   .main-grid {
     display: grid;
     grid-template-columns: 1fr 320px;
@@ -352,7 +352,7 @@
     align-items: start;
   }
 
-  /* \uc0─ ─  STATS ─ ─  */
+  /* ─ ─  STATS ─ ─  */
   .stats-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -387,7 +387,7 @@
   .stat-val.di { color: var(--accent3); }
   .stat-val.e { color: var(--green); }
 
-  /* \uc0─ ─  FEED HEADER ─ ─  */
+  /* ─ ─  FEED HEADER ─ ─  */
   .feed-header {
     display: flex;
     align-items: center;
@@ -411,7 +411,7 @@
     letter-spacing: 1px;
   }
 
-  /* \uc0─ ─  INTEL CARDS ─ ─  */
+  /* ─ ─  INTEL CARDS ─ ─  */
   .feed { display: flex; flex-direction: column; gap: 10px; }
 
   .intel-card {
@@ -650,7 +650,7 @@
     border-radius: 2px;
   }
 
-  /* \uc0─ ─  SIDEBAR ─ ─  */
+  /* ─ ─  SIDEBAR ─ ─  */
   .sidebar { display: flex; flex-direction: column; gap: 16px; }
 
   .sidebar-card {
@@ -828,7 +828,7 @@
 </head>
 <body>
 
-<!-- \uc0═ ═ ═  HEADER ═ ═ ═  -->
+<!-- ═ ═ ═  HEADER ═ ═ ═  -->
 <header>
   <div class="logo">
     <div class="logo-mark">
@@ -845,11 +845,11 @@
     </div>
     <div class="logo-text-group">
       <div class="logo-title">EASTWATCH</div>
-      <div class="logo-subtitle">\uc0東 亞 情 報 監 控 系 統  v2</div>
+      <div class="logo-subtitle">東 亞 情 報 監 控 系 統  v2</div>
     </div>
   </div>
   <div class="header-center">
-    <div class="header-pill active" id="modeIndicator">\uc0●  LIVE FEED</div>
+    <div class="header-pill active" id="modeIndicator">●  LIVE FEED</div>
     <div class="header-pill" id="sourceCount">SOURCES: --</div>
   </div>
   <div class="header-right">
@@ -864,31 +864,31 @@
   </div>
 </header>
 
-<!-- \uc0═ ═ ═  MAIN ═ ═ ═  -->
+<!-- ═ ═ ═  MAIN ═ ═ ═  -->
 <div class="container">
 
   <!-- Executive Summary -->
   <div class="exec-summary">
     <div class="exec-header">
-      <div class="exec-label">\uc0▸  DAILY EXECUTIVE SUMMARY</div>
-      <div class="exec-label" style="background:rgba(77,157,224,0.1);color:var(--accent3);">\uc0每 日 執 行 摘 要 </div>
+      <div class="exec-label">▸  DAILY EXECUTIVE SUMMARY</div>
+      <div class="exec-label" style="background:rgba(77,157,224,0.1);color:var(--accent3);">每 日 執 行 摘 要 </div>
       <div class="exec-date" id="execDate">--</div>
     </div>
-    <div class="exec-text loading" id="execText">\uc0正 在 生 成 今 日 東 亞 情 勢 摘 要 ， 請 稍 候 ...</div>
+    <div class="exec-text loading" id="execText">正 在 生 成 今 日 東 亞 情 勢 摘 要 ， 請 稍 候 ...</div>
   </div>
 
   <!-- Controls -->
   <div class="controls-row">
     <div class="seg-control">
-      <button class="seg-btn active" onclick="setRange('today', this)">\uc0今 日 </button>
-      <button class="seg-btn" onclick="setRange('week', this)">\uc0本 週 </button>
-      <button class="seg-btn" onclick="setRange('month', this)">\uc0本 月 </button>
+      <button class="seg-btn active" onclick="setRange('today', this)">今 日 </button>
+      <button class="seg-btn" onclick="setRange('week', this)">本 週 </button>
+      <button class="seg-btn" onclick="setRange('month', this)">本 月 </button>
     </div>
     <div class="cat-filters">
-      <button class="cat-btn active" data-cat="all" onclick="setFilter('all', this)">\uc0全 部 </button>
-      <button class="cat-btn" data-cat="defense" onclick="setFilter('defense', this)">\uc0   國 防 </button>
-      <button class="cat-btn" data-cat="diplomacy" onclick="setFilter('diplomacy', this)">\uc0   外 交 </button>
-      <button class="cat-btn" data-cat="economy" onclick="setFilter('economy', this)">\uc0   經 濟 </button>
+      <button class="cat-btn active" data-cat="all" onclick="setFilter('all', this)">全 部 </button>
+      <button class="cat-btn" data-cat="defense" onclick="setFilter('defense', this)">   國 防 </button>
+      <button class="cat-btn" data-cat="diplomacy" onclick="setFilter('diplomacy', this)">   外 交 </button>
+      <button class="cat-btn" data-cat="economy" onclick="setFilter('economy', this)">   經 濟 </button>
     </div>
     <button class="refresh-btn" id="refreshBtn" onclick="loadAll()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -897,19 +897,19 @@
         <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
         <path d="M8 16H3v5"/>
       </svg>
-      \uc0更 新 情 報 
+      更 新 情 報 
     </button>
   </div>
 
   <!-- Country row -->
   <div class="country-row">
-    <span class="country-label">\uc0國 家 篩 選 ： </span>
-    <button class="ctag on" data-c="CN" onclick="toggleC('CN', this)">\uc0     中 國 </button>
-    <button class="ctag on" data-c="TW" onclick="toggleC('TW', this)">\uc0     台 灣 </button>
-    <button class="ctag on" data-c="JP" onclick="toggleC('JP', this)">\uc0     日 本 </button>
-    <button class="ctag on" data-c="KR" onclick="toggleC('KR', this)">\uc0     南 韓 </button>
-    <button class="ctag on" data-c="NK" onclick="toggleC('NK', this)">\uc0     北 韓 </button>
-    <button class="ctag on" data-c="US" onclick="toggleC('US', this)">\uc0     美 國 </button>
+    <span class="country-label">國 家 篩 選 ： </span>
+    <button class="ctag on" data-c="CN" onclick="toggleC('CN', this)">     中 國 </button>
+    <button class="ctag on" data-c="TW" onclick="toggleC('TW', this)">     台 灣 </button>
+    <button class="ctag on" data-c="JP" onclick="toggleC('JP', this)">     日 本 </button>
+    <button class="ctag on" data-c="KR" onclick="toggleC('KR', this)">     南 韓 </button>
+    <button class="ctag on" data-c="NK" onclick="toggleC('NK', this)">     北 韓 </button>
+    <button class="ctag on" data-c="US" onclick="toggleC('US', this)">     美 國 </button>
   </div>
 
   <!-- Stats -->
@@ -938,15 +938,15 @@
     <!-- Feed -->
     <div>
       <div class="feed-header">
-        <div class="feed-title">INTEL FEED / \uc0情 報 彙 整 </div>
+        <div class="feed-title">INTEL FEED / 情 報 彙 整 </div>
         <div class="feed-line"></div>
-        <div class="update-ts" id="updateTs">\uc0尚 未 更 新 </div>
+        <div class="update-ts" id="updateTs">尚 未 更 新 </div>
       </div>
       <div class="feed" id="feed">
         <div class="loading-screen">
           <div class="loading-hex"></div>
           <div class="loading-text">INITIALIZING</div>
-          <div class="loading-sub">\uc0正 在 啟 動 東 亞 情 報 系 統 ...</div>
+          <div class="loading-sub">正 在 啟 動 東 亞 情 報 系 統 ...</div>
         </div>
       </div>
     </div>
@@ -958,11 +958,11 @@
       <div class="sidebar-card">
         <div class="sidebar-card-header">
           <div style="width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse-dot 1s ease-in-out infinite;"></div>
-          <div class="sidebar-card-title">\uc0台 海 局 勢 監 控 </div>
+          <div class="sidebar-card-title">台 海 局 勢 監 控 </div>
         </div>
         <div class="sidebar-card-body">
           <div class="strait-alert" id="straitItems">
-            <div style="color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-align:center;padding:20px;">\uc0載 入 中 ...</div>
+            <div style="color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-align:center;padding:20px;">載 入 中 ...</div>
           </div>
         </div>
       </div>
@@ -970,12 +970,12 @@
       <!-- US Relations -->
       <div class="sidebar-card">
         <div class="sidebar-card-header">
-          <span style="font-size:14px;">\uc0    </span>
-          <div class="sidebar-card-title">\uc0美 國 關 係 指 數 </div>
+          <span style="font-size:14px;">    </span>
+          <div class="sidebar-card-title">美 國 關 係 指 數 </div>
         </div>
         <div class="sidebar-card-body">
           <div class="us-relations" id="usRelations">
-            <div style="color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-align:center;padding:20px;">\uc0載 入 中 ...</div>
+            <div style="color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:2px;text-align:center;padding:20px;">載 入 中 ...</div>
           </div>
         </div>
       </div>
@@ -983,27 +983,27 @@
       <!-- Source types legend -->
       <div class="sidebar-card">
         <div class="sidebar-card-header">
-          <div class="sidebar-card-title">\uc0情 報 來 源 類 型 </div>
+          <div class="sidebar-card-title">情 報 來 源 類 型 </div>
         </div>
         <div class="sidebar-card-body" style="display:flex;flex-direction:column;gap:8px;">
           <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-dim);">
-            <div style="display:flex;align-items:center;justify-content:center;width:16px;height:16px;background:var(--accent3);border-radius:50%;font-size:9px;color:white;font-weight:700;flex-shrink:0;">\uc0✓ </div>
-            \uc0藍 勾 勾 帳 號  \'97 官 員 、 學 者 、 智 庫 人 員 
+            <div style="display:flex;align-items:center;justify-content:center;width:16px;height:16px;background:var(--accent3);border-radius:50%;font-size:9px;color:white;font-weight:700;flex-shrink:0;">✓ </div>
+            藍 勾 勾 帳 號  \'97 官 員 、 學 者 、 智 庫 人 員 
           </div>
           <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-dim);">
-            <span style="font-size:14px;">\uc0  </span>
-            X (Twitter) / Threads \uc0社 群 媒 體 
+            <span style="font-size:14px;">  </span>
+            X (Twitter) / Threads 社 群 媒 體 
           </div>
           <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-dim);">
-            <span style="font-size:14px;">\uc0  </span>
-            LinkedIn \uc0專 業 分 析 
+            <span style="font-size:14px;">  </span>
+            LinkedIn 專 業 分 析 
           </div>
           <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-dim);">
-            <span style="font-size:14px;">\uc0  </span>
-            \uc0區 域 媒 體  / 非 主 流 報 導 
+            <span style="font-size:14px;">  </span>
+            區 域 媒 體  / 非 主 流 報 導 
           </div>
           <div style="border-top:1px solid var(--border);padding-top:8px;font-size:10px;color:var(--text-dim);font-family:'Share Tech Mono',monospace;letter-spacing:1px;line-height:1.6;">
-            \uc0優 先 收 錄 尚 未 被 主 流 媒 體 大 量 報 導 的 訊 息 
+            優 先 收 錄 尚 未 被 主 流 媒 體 大 量 報 導 的 訊 息 
           </div>
         </div>
       </div>
@@ -1013,24 +1013,24 @@
 </div>
 
 <script>
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
-// \uc0▼ ▼ ▼  只 需 在 這 裡 填 入 您 的  API 金 鑰 ， 其 他 不 用 動  ▼ ▼ ▼ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ▼ ▼ ▼  只 需 在 這 裡 填 入 您 的  API 金 鑰 ， 其 他 不 用 動  ▼ ▼ ▼ 
 const ANTHROPIC_API_KEY = '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';
-// \uc0▲ ▲ ▲  例 如 ： 'sk-ant-api03-xxxxxx...' ▲ ▲ ▲ 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ▲ ▲ ▲  例 如 ： 'sk-ant-api03-xxxxxx...' ▲ ▲ ▲ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // STATE
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 let allIntel = [];
 let activeFilter = 'all';
 let activeCountries = new Set(['CN','TW','JP','KR','NK','US']);
 let isLoading = false;
 let currentRange = 'today';
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // CLOCK
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 function updateClock() {
   const now = new Date();
   document.getElementById('clock').textContent =
@@ -1043,9 +1043,9 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // UI CONTROLS
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 function setRange(r, btn) {
   currentRange = r;
   document.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
@@ -1080,9 +1080,9 @@ function toggleOrig(id) {
   }
 }
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // STATUS
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 function setStatus(state, label) {
   const dot = document.getElementById('statusDot');
   const lbl = document.getElementById('statusLabel');
@@ -1092,9 +1092,9 @@ function setStatus(state, label) {
                     state === 'loading' ? 'var(--yellow)' : 'var(--red)';
 }
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // API CALL
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 async function callClaude(prompt, maxTokens = 4000) {
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -1120,9 +1120,9 @@ async function callClaude(prompt, maxTokens = 4000) {
     .join('');
 }
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // LOAD ALL DATA
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 async function loadAll() {
   if (isLoading) return;
   isLoading = true;
@@ -1133,19 +1133,19 @@ async function loadAll() {
   setStatus('loading', 'LOADING...');
 
   document.getElementById('execText').className = 'exec-text loading';
-  document.getElementById('execText').textContent = '\uc0正 在 搜 集 最 新 情 資 並 生 成 摘 要 ， 請 稍 候 ...';
+  document.getElementById('execText').textContent = '正 在 搜 集 最 新 情 資 並 生 成 摘 要 ， 請 稍 候 ...';
 
   document.getElementById('feed').innerHTML = `
     <div class="loading-screen">
       <div class="loading-hex"></div>
       <div class="loading-text">GATHERING INTELLIGENCE</div>
-      <div class="loading-sub">\uc0正 在 搜 集 東 亞 最 新 情 資 ， 啟 用 網 路 搜 尋 ...</div>
+      <div class="loading-sub">正 在 搜 集 東 亞 最 新 情 資 ， 啟 用 網 路 搜 尋 ...</div>
     </div>`;
 
   const today = new Date().toLocaleDateString('zh-TW', { timeZone: 'Asia/Taipei' });
   const todayEn = new Date().toLocaleDateString('en-US', { timeZone: 'Asia/Taipei', month: 'long', day: 'numeric', year: 'numeric' });
 
-  // \uc0─ ─  INTEL FEED PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
+  // ─ ─  INTEL FEED PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
   const intelPrompt = `You are a professional East Asia intelligence analyst. Today is ${todayEn} (${today}).
 
 Your task: Search for the latest real developments in East Asia today covering defense, diplomacy, and economics.
@@ -1167,28 +1167,28 @@ Return ONLY a raw JSON array (no markdown, no explanation) with exactly 15 items
 [
   {
     "id": 1,
-    "title": "\uc0標 題 （ 繁 體 中 文 ， 20字 以 內 ） ",
-    "summary": "\uc0繁 體 中 文 摘 要 （ 120-160字 ， 包 含 背 景 、 影 響 、 各 方 反 應 、 分 析 師 觀 點 ） ",
-    "originalText": "\uc0原 始 內 容 摘 錄 （ 保 留 原 文 語 言 ， 英 /日 /韓 /中 ， 50-100字 ） ",
+    "title": "標 題 （ 繁 體 中 文 ， 20字 以 內 ） ",
+    "summary": "繁 體 中 文 摘 要 （ 120-160字 ， 包 含 背 景 、 影 響 、 各 方 反 應 、 分 析 師 觀 點 ） ",
+    "originalText": "原 始 內 容 摘 錄 （ 保 留 原 文 語 言 ， 英 /日 /韓 /中 ， 50-100字 ） ",
     "originalLang": "EN|JA|KO|ZH-CN|ZH-TW",
     "category": "defense|diplomacy|economy",
     "countries": ["CN","TW","JP","KR","NK","US"],
-    "source": "\uc0發 文 者 姓 名 或 帳 號 （ 具 體 人 名 ， 如  @ElbridgeColby 或  黃 志 芳 ） ",
+    "source": "發 文 者 姓 名 或 帳 號 （ 具 體 人 名 ， 如  @ElbridgeColby 或  黃 志 芳 ） ",
     "sourceType": "X|Threads|LinkedIn|Facebook|Think-Tank|Official",
     "sourceVerified": true,
     "platform": "X|Threads|LinkedIn|Facebook|Reuters|Bloomberg|NHK|Yonhap|RTI|CSIS|RAND",
-    "sourceUrl": "https://\uc0真 實 來 源 連 結 ",
+    "sourceUrl": "https://真 實 來 源 連 結 ",
     "time": "HH:MM",
     "importance": 85,
-    "relations": "\uc0涉 及 國 家 間 關 係 （ 一 句 話 ） ",
-    "usRelation": "\uc0與 美 國 關 係 （ 一 句 話 ， 若 無 則 null） ",
+    "relations": "涉 及 國 家 間 關 係 （ 一 句 話 ） ",
+    "usRelation": "與 美 國 關 係 （ 一 句 話 ， 若 無 則 null） ",
     "isNewToMedia": true
   }
 ]
 
 Require: min 2 JP, min 4 defense, min 4 diplomacy, min 4 economy. Return only the JSON array.`;
 
-  // \uc0─ ─  STRAIT WATCH PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
+  // ─ ─  STRAIT WATCH PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
   const straitPrompt = `Today is ${todayEn}. Search for the latest Taiwan Strait and cross-strait situation updates today.
 
 Return ONLY a raw JSON array (no markdown) with 4 items:
@@ -1196,28 +1196,28 @@ Return ONLY a raw JSON array (no markdown) with 4 items:
   {
     "type": "MILITARY|POLITICAL|ECONOMIC|DIPLOMATIC",
     "level": "high|med|low",
-    "text": "\uc0繁 體 中 文 描 述 （ 40字 以 內 ） ",
-    "detail": "\uc0詳 細 說 明 （ 60字 ） ",
+    "text": "繁 體 中 文 描 述 （ 40字 以 內 ） ",
+    "detail": "詳 細 說 明 （ 60字 ） ",
     "time": "HH:MM"
   }
 ]`;
 
-  // \uc0─ ─  US RELATIONS PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
+  // ─ ─  US RELATIONS PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
   const usRelPrompt = `Today is ${todayEn}. Assess current US relations with East Asian countries based on today's news.
 
 Return ONLY raw JSON (no markdown):
 {
-  "CN": { "score": 25, "color": "#f05149", "note": "\uc0一 句 話 說 明 當 前 美 中 關 係 （ 繁 體 中 文 ） " },
-  "TW": { "score": 82, "color": "#3db950", "note": "\uc0一 句 話 說 明 當 前 美 台 關 係 （ 繁 體 中 文 ） " },
-  "JP": { "score": 88, "color": "#3db950", "note": "\uc0一 句 話 說 明 當 前 美 日 關 係 （ 繁 體 中 文 ） " },
-  "KR": { "score": 75, "color": "#d4a017", "note": "\uc0一 句 話 說 明 當 前 美 韓 關 係 （ 繁 體 中 文 ） " },
-  "NK": { "score": 8,  "color": "#f05149", "note": "\uc0一 句 話 說 明 當 前 美 朝 關 係 （ 繁 體 中 文 ） " }
+  "CN": { "score": 25, "color": "#f05149", "note": "一 句 話 說 明 當 前 美 中 關 係 （ 繁 體 中 文 ） " },
+  "TW": { "score": 82, "color": "#3db950", "note": "一 句 話 說 明 當 前 美 台 關 係 （ 繁 體 中 文 ） " },
+  "JP": { "score": 88, "color": "#3db950", "note": "一 句 話 說 明 當 前 美 日 關 係 （ 繁 體 中 文 ） " },
+  "KR": { "score": 75, "color": "#d4a017", "note": "一 句 話 說 明 當 前 美 韓 關 係 （ 繁 體 中 文 ） " },
+  "NK": { "score": 8,  "color": "#f05149", "note": "一 句 話 說 明 當 前 美 朝 關 係 （ 繁 體 中 文 ） " }
 }`;
 
-  // \uc0─ ─  EXEC SUMMARY PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
+  // ─ ─  EXEC SUMMARY PROMPT ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ 
   const execPrompt = `Today is ${todayEn}. You are an intelligence analyst. Search for today's East Asia major developments and write an executive summary.
 
-Write in Traditional Chinese (\uc0繁 體 中 文 ). 150-200 characters. Cover: biggest defense/military signal, key diplomatic move, major economic development. Be concrete and analytical, not generic. Start directly with content.`;
+Write in Traditional Chinese (繁 體 中 文 ). 150-200 characters. Cover: biggest defense/military signal, key diplomatic move, major economic development. Be concrete and analytical, not generic. Start directly with content.`;
 
   try {
     // Run in parallel where possible
@@ -1237,7 +1237,7 @@ Write in Traditional Chinese (\uc0繁 體 中 文 ). 150-200 characters. Cover: 
       allIntel = JSON.parse(cleaned.slice(startIdx, endIdx + 1));
     } catch(e) {
       console.error('Intel parse error:', e, intelText.slice(0, 300));
-      throw new Error('\uc0情 報 解 析 失 敗 ');
+      throw new Error('情 報 解 析 失 敗 ');
     }
 
     // Update stats
@@ -1249,11 +1249,11 @@ Write in Traditional Chinese (\uc0繁 體 中 文 ). 150-200 characters. Cover: 
 
     const now = new Date();
     document.getElementById('updateTs').textContent =
-      `\uc0最 後 更 新 ： ${now.toLocaleTimeString('zh-TW', { timeZone:'Asia/Taipei', hour12:false })}`;
+      `最 後 更 新 ： ${now.toLocaleTimeString('zh-TW', { timeZone:'Asia/Taipei', hour12:false })}`;
 
     // Render exec summary
     document.getElementById('execText').className = 'exec-text';
-    document.getElementById('execText').textContent = execText.trim() || '\uc0今 日 東 亞 情 勢 持 續 演 變 中 ， 詳 見 下 方 情 報 彙 整 。 ';
+    document.getElementById('execText').textContent = execText.trim() || '今 日 東 亞 情 勢 持 續 演 變 中 ， 詳 見 下 方 情 報 彙 整 。 ';
 
     // Parse & render strait watch
     try {
@@ -1263,7 +1263,7 @@ Write in Traditional Chinese (\uc0繁 體 中 文 ). 150-200 characters. Cover: 
       renderStrait(straitData);
     } catch(e) {
       document.getElementById('straitItems').innerHTML =
-        `<div style="color:var(--text-dim);font-size:11px;font-family:'Share Tech Mono',monospace;text-align:center;">\uc0資 料 解 析 中 ...</div>`;
+        `<div style="color:var(--text-dim);font-size:11px;font-family:'Share Tech Mono',monospace;text-align:center;">資 料 解 析 中 ...</div>`;
     }
 
     // Parse & render US relations
@@ -1274,7 +1274,7 @@ Write in Traditional Chinese (\uc0繁 體 中 文 ). 150-200 characters. Cover: 
       renderUSRel(usData);
     } catch(e) {
       document.getElementById('usRelations').innerHTML =
-        `<div style="color:var(--text-dim);font-size:11px;font-family:'Share Tech Mono',monospace;text-align:center;">\uc0資 料 解 析 中 ...</div>`;
+        `<div style="color:var(--text-dim);font-size:11px;font-family:'Share Tech Mono',monospace;text-align:center;">資 料 解 析 中 ...</div>`;
     }
 
     setStatus('live', 'LIVE');
@@ -1284,13 +1284,13 @@ Write in Traditional Chinese (\uc0繁 體 中 文 ). 150-200 characters. Cover: 
     console.error(err);
     setStatus('error', 'ERROR');
     document.getElementById('execText').className = 'exec-text';
-    document.getElementById('execText').textContent = '\uc0無 法 連 線 至 情 報 來 源 ， 請 稍 後 重 試 。 ';
+    document.getElementById('execText').textContent = '無 法 連 線 至 情 報 來 源 ， 請 稍 後 重 試 。 ';
     document.getElementById('feed').innerHTML = `
       <div class="error-screen">
-        <div style="font-size:36px;opacity:0.4;">\uc0⚠ ️ </div>
+        <div style="font-size:36px;opacity:0.4;">⚠ ️ </div>
         <div style="font-family:'Share Tech Mono',monospace;color:var(--red);letter-spacing:3px;font-size:12px;">INTEL FEED ERROR</div>
         <div style="color:var(--text-dim);font-size:13px;margin-top:4px;">${err.message}</div>
-        <button class="refresh-btn" style="margin-top:16px;" onclick="loadAll()">\uc0重 試 連 線 </button>
+        <button class="refresh-btn" style="margin-top:16px;" onclick="loadAll()">重 試 連 線 </button>
       </div>`;
   } finally {
     isLoading = false;
@@ -1299,12 +1299,12 @@ Write in Traditional Chinese (\uc0繁 體 中 文 ). 150-200 characters. Cover: 
   }
 }
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // RENDER FEED
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 function renderFeed() {
   const feed = document.getElementById('feed');
-  const catMap = { defense: '\uc0國 防 ', diplomacy: '外 交 ', economy: '經 濟 ' };
+  const catMap = { defense: '國 防 ', diplomacy: '外 交 ', economy: '經 濟 ' };
 
   let items = allIntel.filter(item => {
     if (activeFilter !== 'all' && item.category !== activeFilter) return false;
@@ -1313,7 +1313,7 @@ function renderFeed() {
   });
 
   if (items.length === 0) {
-    feed.innerHTML = `<div class="no-results">NO INTEL MATCHING CURRENT FILTERS<br><br>\uc0請 調 整 篩 選 條 件 </div>`;
+    feed.innerHTML = `<div class="no-results">NO INTEL MATCHING CURRENT FILTERS<br><br>請 調 整 篩 選 條 件 </div>`;
     return;
   }
 
@@ -1328,12 +1328,12 @@ function renderFeed() {
 
     const hasOrig = item.originalText && item.originalText.length > 5;
     const langLabel = {
-      'EN': 'ENGLISH', 'JA': '\uc0日 本 語 ', 'KO': '한 국 어 ',
-      'ZH-CN': '\uc0簡 體 中 文 ', 'ZH-TW': '繁 體 中 文 '
+      'EN': 'ENGLISH', 'JA': '日 本 語 ', 'KO': '한 국 어 ',
+      'ZH-CN': '簡 體 中 文 ', 'ZH-TW': '繁 體 中 文 '
     }[item.originalLang] || 'ORIGINAL';
 
     const verifiedBadge = item.sourceVerified
-      ? `<div class="source-verified"><div class="verified-check">\uc0✓ </div>${item.source}</div>`
+      ? `<div class="source-verified"><div class="verified-check">✓ </div>${item.source}</div>`
       : `<div class="source-verified">${item.source}</div>`;
 
     return `
@@ -1352,8 +1352,8 @@ function renderFeed() {
 
           ${hasOrig ? `
           <div class="orig-toggle" id="toggle-${item.id}" onclick="toggleOrig(${item.id})">
-            <span class="orig-toggle-arrow">\uc0▶ </span>
-            <span>\uc0展 開 原 文  (${langLabel})</span>
+            <span class="orig-toggle-arrow">▶ </span>
+            <span>展 開 原 文  (${langLabel})</span>
           </div>
           <div class="orig-panel" id="orig-${item.id}">
             <div class="orig-lang-label">${langLabel} ORIGINAL</div>
@@ -1363,7 +1363,7 @@ function renderFeed() {
 
           ${item.relations ? `
           <div class="relations-row">
-            \uc0   ${item.relations}${item.usRelation ? `<br>     ${item.usRelation}` : ''}
+               ${item.relations}${item.usRelation ? `<br>     ${item.usRelation}` : ''}
           </div>` : ''}
 
           <div class="card-footer">
@@ -1373,13 +1373,13 @@ function renderFeed() {
                 <polyline points="15 3 21 3 21 9"/>
                 <line x1="10" y1="14" x2="21" y2="3"/>
               </svg>
-              \uc0查 看 來 源 
+              查 看 來 源 
             </a>
             <span style="font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-dim);">
               ${item.sourceUrl.replace('https://','').replace('http://','').split('/')[0]}
             </span>
             <div class="importance-meter">
-              \uc0重 要 
+              重 要 
               <div class="imp-bar">
                 <div class="imp-fill" style="width:${item.importance||70}%;background:${impColor(item.importance||70)}"></div>
               </div>
@@ -1391,9 +1391,9 @@ function renderFeed() {
   }).join('');
 }
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // RENDER SIDEBAR
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 function renderStrait(data) {
   const container = document.getElementById('straitItems');
   container.innerHTML = data.map(item => `
@@ -1411,7 +1411,7 @@ function renderStrait(data) {
 
 function renderUSRel(data) {
   const container = document.getElementById('usRelations');
-  const labels = { CN:'\uc0     中 國 ', TW:'     台 灣 ', JP:'     日 本 ', KR:'     南 韓 ', NK:'     北 韓 ' };
+  const labels = { CN:'     中 國 ', TW:'     台 灣 ', JP:'     日 本 ', KR:'     南 韓 ', NK:'     北 韓 ' };
   container.innerHTML = Object.entries(data).map(([c, v]) => `
     <div class="us-rel-item">
       <div class="us-rel-header">
@@ -1426,9 +1426,9 @@ function renderUSRel(data) {
   ).join('');
 }
 
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 // INIT
-// \uc0═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
+// ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 loadAll();
 </script>
 </body>
