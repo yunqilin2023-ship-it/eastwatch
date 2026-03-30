@@ -1169,7 +1169,7 @@ function renderFeed() {
 }
 
 // INIT
-window.onload = function() {
+window.onload = function() { //
   const key = prompt('EASTWATCH\n請輸入 Anthropic API 金鑰：');
   if (key && key.startsWith('sk-ant-')) {
     ANTHROPIC_API_KEY = key;
@@ -1177,6 +1177,20 @@ window.onload = function() {
   } else if (key) {
     alert('金鑰格式錯誤，請重新整理後再試');
   }
+};
+
+window.onload = function() {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;background:#060a0e;z-index:9999;display:flex;align-items:center;justify-content:center;';
+  overlay.innerHTML = '<div style="background:#0b1017;border:1px solid #1e2d3d;border-radius:12px;padding:40px;width:440px;font-family:monospace;"><div style="color:#00c8a0;font-size:20px;letter-spacing:3px;margin-bottom:24px;">EASTWATCH</div><input id="keyInput" type="password" placeholder="sk-ant-api03-..." style="width:100%;padding:12px;background:#131b24;border:1px solid #1e2d3d;color:#e8f4ff;border-radius:6px;font-family:monospace;font-size:13px;box-sizing:border-box;margin-bottom:12px;"><button onclick="submitKey()" style="width:100%;padding:13px;background:#00c8a0;color:#060a0e;border:none;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;">啟動系統</button></div>';
+  document.body.appendChild(overlay);
+  window.submitKey = function() {
+    const key = document.getElementById('keyInput').value.trim();
+    if (!key.startsWith('sk-ant-')) return;
+    ANTHROPIC_API_KEY = key;
+    overlay.remove();
+    loadAll();
+  };
 };
 </script>
 </body>
