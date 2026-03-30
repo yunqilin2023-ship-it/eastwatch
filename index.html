@@ -1220,7 +1220,6 @@ Return ONLY raw JSON (no markdown):
 Write in Traditional Chinese (繁 體 中 文 ). 150-200 characters. Cover: biggest defense/military signal, key diplomatic move, major economic development. Be concrete and analytical, not generic. Start directly with content.`;
 
   try {
-    // Run in parallel where possible
     const intelText = await callClaude(intelPrompt, 3500);
     await new Promise(r => setTimeout(r, 4000));
     const straitText = await callClaude(straitPrompt, 600);
@@ -1228,7 +1227,6 @@ Write in Traditional Chinese (繁 體 中 文 ). 150-200 characters. Cover: bigg
     const usRelText = await callClaude(usRelPrompt, 500);
     await new Promise(r => setTimeout(r, 3000));
     const execText = await callClaude(execPrompt, 300);
-      allIntel = JSON.parse(cleaned.slice(startIdx, endIdx + 1));
     } catch(e) {
       console.error('Intel parse error:', e, intelText.slice(0, 300));
       throw new Error('情 報 解 析 失 敗 ');
