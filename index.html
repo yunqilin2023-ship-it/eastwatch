@@ -1424,6 +1424,17 @@ function renderUSRel(data) {
 // INIT
 // ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ 
 loadAll();
+<script>
+// INIT
+window.addEventListener('load', function() {
+  const key = prompt('請輸入 Anthropic API 金鑰 (sk-ant-...)：');
+  if (key && key.startsWith('sk-ant-')) {
+    ANTHROPIC_API_KEY = key;
+    loadAll();
+  } else {
+    alert('金鑰格式錯誤');
+  }
+});
 </script>
 </body>
 </html>}
